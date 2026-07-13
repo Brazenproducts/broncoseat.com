@@ -103,6 +103,10 @@ p{margin-bottom:.9rem}
 .trim-btn:hover,.trim-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
 @media(max-width:900px){.layout{grid-template-columns:1fr}.bartact-card .b-body{flex-direction:column}.bartact-card img{width:100%;height:200px}.pc-body{flex-direction:column}.pc-body img{width:100%;height:200px}.pros-cons{grid-template-columns:1fr}}
 @media(max-width:600px){.hdr-inner{flex-direction:column;align-items:flex-start}.main-nav ul{gap:12px}}
+
+.pc-toggle{display:block;width:100%;margin-top:10px;background:none;border:1px solid var(--border);border-radius:8px;padding:7px 14px;font-size:.88rem;font-weight:700;color:var(--muted);cursor:pointer;text-align:left}
+.pc-toggle:hover{background:rgba(255,255,255,.06)}
+.pc-body.collapsed{display:none}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does Bartact make seat covers for the Ford Bronco?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Bartact makes custom-fit covers for the 2021+ Bronco. They are direct-only at bartact.com \u2014 you won't find them on Amazon. The fit is exact, the fabric is mil-spec, and they are cut and hand-sewn in the USA."}}, {"@type": "Question", "name": "Are neoprene seat covers worth it for the Bronco?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, especially for owners who take the Bronco off-road. Neoprene handles water, mud, and dirt well, installs quickly, and holds up over time. Diver Down and Holda are the top picks at different price points."}}, {"@type": "Question", "name": "What is the difference between the 2-door and 4-door Bronco seat covers?", "acceptedAnswer": {"@type": "Answer", "text": "The 2-door Bronco has no rear seat, so covers are front-only. The 4-door has a rear bench that needs its own set. Make sure you select the right configuration before ordering."}}, {"@type": "Question", "name": "Do I need seat covers with airbag compatibility?", "acceptedAnswer": {"@type": "Answer", "text": "The 2021+ Bronco has side-curtain airbags but standard Bronco seats do not have seat-mounted side airbags, so most covers fit fine. Bartact patterns are always airbag-aware as a matter of policy."}}, {"@type": "Question", "name": "Will Bronco seat covers fit the Bronco Sport?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Bronco Sport is a completely different platform (based on the Escape) with different seat shapes. Make sure products specifically list the full-size Bronco (2021+), not the Bronco Sport."}}]}</script>
 </head>
@@ -161,7 +165,8 @@ p{margin-bottom:.9rem}
     <div class="pc-stars">★★★★★ 4.7/5</div>
   </div>
 </div>
-<div class="pc-body">
+<button class="pc-toggle">Read full review ▼</button>
+<div class="pc-body collapsed">
   <img src="https://m.media-amazon.com/images/I/81ZSL8IY3iL._AC_SL1500_.jpg" alt="Diver Down Neoprene Seat Cover Set for Ford Bronco" loading="lazy">
   <div class="pc-text">
     <div class="pc-price">$249.99</div>
@@ -180,7 +185,8 @@ p{margin-bottom:.9rem}
     <div class="pc-stars">★★★★★ 4.5/5</div>
   </div>
 </div>
-<div class="pc-body">
+<button class="pc-toggle">Read full review ▼</button>
+<div class="pc-body collapsed">
   <img src="https://m.media-amazon.com/images/I/61wFEyYaTlL._AC_SL1193_.jpg" alt="Holda Custom Neoprene Seat Covers for Ford Bronco" loading="lazy">
   <div class="pc-text">
     <div class="pc-price">$169.99</div>
@@ -199,7 +205,8 @@ p{margin-bottom:.9rem}
     <div class="pc-stars">★★★★★ 4.4/5</div>
   </div>
 </div>
-<div class="pc-body">
+<button class="pc-toggle">Read full review ▼</button>
+<div class="pc-body collapsed">
   <img src="https://m.media-amazon.com/images/I/81ihb4+OdWL._AC_SL1500_.jpg" alt="Custom Fit Faux Leather — 4-Door Full Set for Ford Bronco" loading="lazy">
   <div class="pc-text">
     <div class="pc-price">$269.99</div>
@@ -218,7 +225,8 @@ p{margin-bottom:.9rem}
     <div class="pc-stars">★★★★★ 4.3/5</div>
   </div>
 </div>
-<div class="pc-body">
+<button class="pc-toggle">Read full review ▼</button>
+<div class="pc-body collapsed">
   <img src="https://m.media-amazon.com/images/I/71qvczPMjdL._AC_SL1500_.jpg" alt="FH Group Custom Fit Seat Covers for Ford Bronco" loading="lazy">
   <div class="pc-text">
     <div class="pc-price">$134.99</div>
@@ -280,5 +288,15 @@ p{margin-bottom:.9rem}
     <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate we earn from qualifying purchases made through links on this page. Bartact links go direct with no affiliate arrangement. Product prices and availability are accurate as of the date published and may change.</p>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.pc-toggle').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var body=this.parentElement.querySelector('.pc-body');
+    var open=!body.classList.contains('collapsed');
+    body.classList.toggle('collapsed',open);
+    this.textContent=open?'Read full review ▼':'Collapse ▲';
+  });
+});
+</script>
 </body>
 </html>
